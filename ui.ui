@@ -119,7 +119,7 @@
      <string>Importancia de tarea</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="btn_mayor">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -140,7 +140,7 @@
      <string>Mayor</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="btn_menor">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -161,7 +161,7 @@
      <string>Menor</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="materia">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -171,7 +171,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="nombre_materia">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -181,7 +181,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="tiempo_tarea">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -191,7 +191,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_comenzar">
     <property name="geometry">
      <rect>
       <x>490</x>
