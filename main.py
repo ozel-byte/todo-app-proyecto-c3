@@ -14,7 +14,7 @@ class ViewTask(QMainWindow):
 
     def __init__(self) -> None:
         super().__init__()
-        uic.loadUi("viuw.ui",self)
+        uic.loadUi("ui.ui",self)
 
     
     def generarIndividuos():
