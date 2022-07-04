@@ -11,6 +11,10 @@ from matplotlib import image
 import numpy
 
 class ViewTask(QMainWindow):
+    MATERIA = ' '
+    NOMBRE_TAREA = ' '
+    TIEMPO_TAREA = 0
+
 
     def __init__(self) -> None:
         super().__init__()
@@ -18,9 +22,9 @@ class ViewTask(QMainWindow):
 
     def validarDatos(self):
         try:
-            str(self.materia.text())
-            str(self.nombre_materia.text())
-            int(self.tiempo_tarea.text())
+            self.MATERIA = str(self.materia.text())
+            self.NOMBRE_TAREA = str(self.nombre_tarea.text())
+            self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
             if self.mayor.isChecked():
                 print('si es max')
             elif self.menor.isChecked():
