@@ -171,7 +171,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="nombre_materia">
+   <widget class="QLineEdit" name="nombre_tarea">
     <property name="geometry">
      <rect>
       <x>90</x>
