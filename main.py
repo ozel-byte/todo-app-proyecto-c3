@@ -16,7 +16,18 @@ class ViewTask(QMainWindow):
         super().__init__()
         uic.loadUi("ui.ui",self)
 
-    
+    def validarDatos(self):
+        try:
+            str(self.materia.text())
+            str(self.nombre_materia.text())
+            int(self.tiempo_tarea.text())
+            if self.mayor.isChecked():
+                print('si es max')
+            elif self.menor.isChecked():
+                print('no es max')
+        except ValueError:
+            print("Datos mal ingresados")
+
     def generarIndividuos():
         pass
 
@@ -38,5 +49,8 @@ class ViewTask(QMainWindow):
 
 
 
-if __name__ == "__main__":
-    pass
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    GUI = ViewTask()
+    GUI.show()
+    sys.exit(app.exec_())
