@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
-    <height>702</height>
+    <width>880</width>
+    <height>679</height>
    </rect>
   </property>
   <property name="font">
@@ -25,21 +25,29 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>0</y>
+      <x>110</x>
+      <y>10</y>
       <width>571</width>
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>26</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>     Optimización de Tarea</string>
+     <string>      Optimización de Tarea</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>110</y>
+      <y>190</y>
       <width>161</width>
       <height>41</height>
      </rect>
@@ -60,7 +68,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>280</y>
+      <y>360</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -81,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>190</y>
+      <y>270</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -101,8 +109,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>90</y>
+      <x>90</x>
+      <y>440</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -122,8 +130,8 @@
    <widget class="QRadioButton" name="btn_mayor">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>150</y>
+      <x>90</x>
+      <y>500</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -143,8 +151,8 @@
    <widget class="QRadioButton" name="btn_menor">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>150</y>
+      <x>210</x>
+      <y>500</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -165,7 +173,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>150</y>
+      <y>230</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -175,7 +183,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>230</y>
+      <y>310</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -185,7 +193,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>320</y>
+      <y>400</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -194,8 +202,8 @@
    <widget class="QPushButton" name="btn_comenzar">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>320</y>
+      <x>520</x>
+      <y>550</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -215,8 +223,8 @@
    <widget class="QPushButton" name="btn1">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>400</y>
+      <x>80</x>
+      <y>550</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -231,6 +239,47 @@
     </property>
     <property name="text">
      <string>Agregar Tarea</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>120</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Cantidad de tareas de la materia</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cantidad_tarea_por_materia">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>160</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>130</y>
+      <width>301</width>
+      <height>391</height>
+     </rect>
     </property>
    </widget>
   </widget>
