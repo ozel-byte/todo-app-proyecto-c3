@@ -11,11 +11,12 @@ from matplotlib import image
 import numpy
 
 class ViewTask(QMainWindow):
-    MATERIA = ' '
-    NOMBRE_TAREA = ' '
+    MATERIA = ""
+    NOMBRE_TAREA = ""
     TIEMPO_TAREA = 0
     LISTATAREAS = []
     IMPORTANCIATAREA = ""
+    CANTIDAPORMATERIA = 0
 
     def __init__(self) -> None:
         super().__init__()
@@ -28,6 +29,7 @@ class ViewTask(QMainWindow):
             self.MATERIA = str(self.materia.text())
             self.NOMBRE_TAREA = str(self.nombre_tarea.text())
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
+            self.CANTIDAPORMATERIA = int(self.cantidad_tarea_por_materia.text())
             if self.mayor.isChecked():
                 print('si es max')
                 self.IMPORTANCIATAREA = "mayor"
@@ -43,6 +45,7 @@ class ViewTask(QMainWindow):
             self.MATERIA,
             self.NOMBRE_TAREA,
             self.TIEMPO_TAREA,
+            self.CANTIDAPORMATERIA,
             self.IMPORTANCIATAREA
         })
         pass
