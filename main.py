@@ -14,11 +14,14 @@ class ViewTask(QMainWindow):
     MATERIA = ' '
     NOMBRE_TAREA = ' '
     TIEMPO_TAREA = 0
-
+    LISTATAREAS = []
+    IMPORTANCIATAREA = ""
 
     def __init__(self) -> None:
         super().__init__()
         uic.loadUi("ui.ui",self)
+        self.btn1.clicked.connect(self.generarIndividuos)
+    
 
     def validarDatos(self):
         try:
@@ -27,12 +30,21 @@ class ViewTask(QMainWindow):
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
             if self.mayor.isChecked():
                 print('si es max')
+                self.IMPORTANCIATAREA = "mayor"
             elif self.menor.isChecked():
                 print('no es max')
+                self.IMPORTANCIATAREA = "menor"
         except ValueError:
             print("Datos mal ingresados")
 
-    def generarIndividuos():
+    def generarIndividuos(self):
+        print("-----Generar Individuo-----")
+        self.LISTATAREAS.append({
+            self.MATERIA,
+            self.NOMBRE_TAREA,
+            self.TIEMPO_TAREA,
+            self.IMPORTANCIATAREA
+        })
         pass
 
     def seleccionIndividuos():
