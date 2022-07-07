@@ -314,9 +314,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>110</y>
-      <width>391</width>
+      <x>30</x>
+      <y>100</y>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
@@ -332,15 +332,15 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Cantidad de tareas de la materia</string>
+     <string>Poblacion Inicial</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="cantidad_tarea_por_materia">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>160</y>
-      <width>221</width>
+      <x>30</x>
+      <y>150</y>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
@@ -403,6 +403,55 @@ font: 14pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>¿Desea iniciar la optimización?</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cantidad_tarea_por_materia_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>150</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>100</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Dia de entrega de las tareas</string>
     </property>
    </widget>
   </widget>

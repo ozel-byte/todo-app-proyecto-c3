@@ -16,11 +16,14 @@ class ViewTask(QMainWindow):
     TIEMPO_TAREA = 0
     LISTATAREAS = []
     IMPORTANCIATAREA = ""
+    CANTIDADTAREA = 0
+    ABECEDARIO = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
     def __init__(self) -> None:
         super().__init__()
         uic.loadUi("ui.ui",self)
         self.btn1.clicked.connect(self.generarIndividuos)
+        self.btn_comenzar.clicked.connect(self.iniciarIteraccion)
     
 
     def validarDatos(self):
@@ -28,6 +31,7 @@ class ViewTask(QMainWindow):
             self.MATERIA = str(self.materia.text())
             self.NOMBRE_TAREA = str(self.nombre_tarea.text())
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
+            # self.CANTIDADTAREA = int(self.cantidad_tarea_por_materia.text())
             if self.mayor.isChecked():
                 print('si es max')
                 self.IMPORTANCIATAREA = "mayor"
@@ -37,15 +41,20 @@ class ViewTask(QMainWindow):
         except ValueError:
             print("Datos mal ingresados")
 
+
+    def iniciarIteraccion(self):
+        listaTareasNumber = [x for x in range(self.LISTATAREAS)]
+        pass
+
     def generarIndividuos(self):
         print("-----Generar Individuo-----")
+
         self.LISTATAREAS.append({
             self.MATERIA,
             self.NOMBRE_TAREA,
             self.TIEMPO_TAREA,
             self.IMPORTANCIATAREA
         })
-        pass
 
     def seleccionIndividuos():
         pass
