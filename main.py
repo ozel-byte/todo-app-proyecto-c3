@@ -45,6 +45,7 @@ class ViewTask(QMainWindow):
                 self.IMPORTANCIATAREA = "menor"
         except ValueError:
             print("Datos mal ingresados")
+
     def agregarTareas(self):
         self.validarDatos()
         self.LISTATAREAS.append((
@@ -64,9 +65,31 @@ class ViewTask(QMainWindow):
     def iniciarIteraccion(self):
         listaTareasNumber = [x for x in range(self.LISTATAREAS)]
         pass
+    
+    def individuo_unico(self,aux1,aux2):
+        unico = True  
+        for i in aux2:
+            if aux1 == i:
+                unico = False
+                break
+        return unico
 
     def generarIndividuos(self):
         print("-----Generar Individuo-----")
+        array_individuo = []
+        poblacion = []
+        for i in range(int(self.cantidad_tarea_por_materia.text())):
+            print("Entro al for")
+            cont = 0
+            while cont < len(self.LISTATAREAS):
+                print("Entro al while")
+                num_aleatorio = random.randint(0,len(self.LISTATAREAS)-1)
+                if self.individuo_unico(num_aleatorio,array_individuo):
+                    print("Entro al if")
+                    array_individuo.append(num_aleatorio)
+                    cont += 1
+            poblacion.append(array_individuo)
+        print(array_individuo)
         self.ventanaDos.show()
         
 
