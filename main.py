@@ -94,6 +94,7 @@ class ViewTask(QMainWindow):
             array_individuo = []
         print(poblacion)
         self.ventanaDos.show()
+        return poblacion
         
 
     def seleccionIndividuos():
