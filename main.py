@@ -53,8 +53,9 @@ class ViewTask(QMainWindow):
             self.TIEMPO_TAREA,
             self.IMPORTANCIATAREA
         ))
-        for i,x in enumerate(self.LISTATAREAS):
-            self.lista_total.addItem(str(str(i)+". "+str(x)))
+        
+        self.lista_total.addItem("Materia: "+self.MATERIA+"\n Nombre-Tarea: "+str(self.NOMBRE_TAREA)+"\n Tiempo: "+str(self.TIEMPO_TAREA)+"\n Importancia-Tarea: "+str(self.IMPORTANCIATAREA))
+        self.lista_total.addItem("----------------------------------------------------")
         self.materia.setText("")
         self.nombre_tarea.setText("")
         self.tiempo_tarea.setText("")
