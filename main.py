@@ -22,8 +22,10 @@ class ViewTask(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
         uic.loadUi("ui.ui",self)
-        self.btn1.clicked.connect(self.generarIndividuos)
-        self.btn_comenzar.clicked.connect(self.iniciarIteraccion)
+        self.ventanaDos.hide()
+        self.ventanaTres.hide()
+        self.btn_siguiente.clicked.connect(self.generarIndividuos)
+        self.btn_comenzar.clicked.connect(self.prueba)
     
 
     def validarDatos(self):
@@ -40,7 +42,8 @@ class ViewTask(QMainWindow):
                 self.IMPORTANCIATAREA = "menor"
         except ValueError:
             print("Datos mal ingresados")
-
+    def prueba(self):
+        self.ventanaTres.show()
 
     def iniciarIteraccion(self):
         listaTareasNumber = [x for x in range(self.LISTATAREAS)]
@@ -48,7 +51,7 @@ class ViewTask(QMainWindow):
 
     def generarIndividuos(self):
         print("-----Generar Individuo-----")
-
+        self.ventanaDos.show()
         self.LISTATAREAS.append({
             self.MATERIA,
             self.NOMBRE_TAREA,
