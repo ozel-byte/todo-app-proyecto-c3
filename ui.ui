@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>927</width>
+    <width>1216</width>
     <height>763</height>
    </rect>
   </property>
@@ -30,7 +30,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>931</width>
+      <width>1221</width>
       <height>71</height>
      </rect>
     </property>
@@ -53,7 +53,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>210</y>
       <width>161</width>
       <height>41</height>
@@ -77,7 +77,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>410</y>
       <width>221</width>
       <height>41</height>
@@ -101,7 +101,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>310</y>
       <width>221</width>
       <height>41</height>
@@ -125,7 +125,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>510</y>
       <width>221</width>
       <height>41</height>
@@ -149,7 +149,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QRadioButton" name="btn_mayor">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>560</y>
       <width>101</width>
       <height>31</height>
@@ -174,7 +174,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QRadioButton" name="btn_menor">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>150</x>
       <y>560</y>
       <width>101</width>
       <height>31</height>
@@ -198,7 +198,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="materia">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>260</y>
       <width>221</width>
       <height>41</height>
@@ -220,7 +220,7 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="nombre_tarea">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>360</y>
       <width>221</width>
       <height>41</height>
@@ -242,7 +242,7 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="tiempo_tarea">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>460</y>
       <width>221</width>
       <height>41</height>
@@ -264,8 +264,8 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_comenzar">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>630</y>
+      <x>880</x>
+      <y>620</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -289,7 +289,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn1">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>630</y>
       <width>221</width>
       <height>41</height>
@@ -360,8 +360,8 @@ color: rgb(0, 0, 0);</string>
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>160</y>
+      <x>800</x>
+      <y>140</y>
       <width>371</width>
       <height>391</height>
      </rect>
@@ -384,8 +384,8 @@ font: 14pt &quot;Segoe UI&quot;;</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>580</y>
+      <x>830</x>
+      <y>560</y>
       <width>321</width>
       <height>41</height>
      </rect>
@@ -405,37 +405,12 @@ font: 14pt &quot;Segoe UI&quot;;</string>
      <string>¿Desea iniciar la optimización?</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cantidad_tarea_por_materia_2">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>150</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>100</y>
-      <width>291</width>
+      <x>370</x>
+      <y>90</y>
+      <width>341</width>
       <height>41</height>
      </rect>
     </property>
@@ -451,7 +426,17 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Dia de entrega de las tareas</string>
+     <string>Seleccione el Dia de entrega final </string>
+    </property>
+   </widget>
+   <widget class="QCalendarWidget" name="calendarWidget">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>160</y>
+      <width>392</width>
+      <height>236</height>
+     </rect>
     </property>
    </widget>
   </widget>
