@@ -53,7 +53,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>210</y>
       <width>161</width>
       <height>41</height>
@@ -77,7 +77,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>410</y>
       <width>221</width>
       <height>41</height>
@@ -101,7 +101,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>310</y>
       <width>221</width>
       <height>41</height>
@@ -125,7 +125,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>510</y>
       <width>221</width>
       <height>41</height>
@@ -149,7 +149,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QRadioButton" name="btn_mayor">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>560</y>
       <width>101</width>
       <height>31</height>
@@ -174,7 +174,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QRadioButton" name="btn_menor">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>210</x>
       <y>560</y>
       <width>101</width>
       <height>31</height>
@@ -198,7 +198,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="materia">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>260</y>
       <width>221</width>
       <height>41</height>
@@ -220,7 +220,7 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="nombre_tarea">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>360</y>
       <width>221</width>
       <height>41</height>
@@ -242,7 +242,7 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="tiempo_tarea">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>460</y>
       <width>221</width>
       <height>41</height>
@@ -264,7 +264,7 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_siguiente">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>690</y>
       <width>221</width>
       <height>41</height>
@@ -289,7 +289,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_agregar">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>630</y>
       <width>221</width>
       <height>41</height>
@@ -314,7 +314,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>120</y>
       <width>171</width>
       <height>41</height>
@@ -338,7 +338,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="cantidad_tarea_por_materia">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>90</x>
       <y>160</y>
       <width>221</width>
       <height>41</height>
@@ -364,9 +364,9 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>70</y>
+      <y>60</y>
       <width>951</width>
-      <height>661</height>
+      <height>671</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -504,7 +504,7 @@ color: rgb(255, 255, 255);</string>
        <x>10</x>
        <y>0</y>
        <width>941</width>
-       <height>661</height>
+       <height>671</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -577,6 +577,35 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </widget>
    </widget>
+   <widget class="QListWidget" name="lista_total">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>140</y>
+      <width>391</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <zorder>lista_total</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>btn_mayor</zorder>
+   <zorder>btn_menor</zorder>
+   <zorder>materia</zorder>
+   <zorder>nombre_tarea</zorder>
+   <zorder>tiempo_tarea</zorder>
+   <zorder>btn_siguiente</zorder>
+   <zorder>btn_agregar</zorder>
+   <zorder>label_6</zorder>
+   <zorder>cantidad_tarea_por_materia</zorder>
+   <zorder>ventanaDos</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
