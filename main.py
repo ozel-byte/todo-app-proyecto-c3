@@ -77,20 +77,19 @@ class ViewTask(QMainWindow):
 
     def generarIndividuos(self):
         print("-----Generar Individuo-----")
-        array_individuo = []
+        cont = 0
         poblacion = []
+        array_individuo = []
         for i in range(int(self.cantidad_tarea_por_materia.text())):
-            print("Entro al for")
-            cont = 0
             while cont < len(self.LISTATAREAS):
-                print("Entro al while")
                 num_aleatorio = random.randint(0,len(self.LISTATAREAS)-1)
                 if self.individuo_unico(num_aleatorio,array_individuo):
-                    print("Entro al if")
                     array_individuo.append(num_aleatorio)
                     cont += 1
+            cont = 0
             poblacion.append(array_individuo)
-        print(array_individuo)
+            array_individuo = []
+        print(poblacion)
         self.ventanaDos.show()
         
 
