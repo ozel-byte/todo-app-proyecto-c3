@@ -1,5 +1,6 @@
 
 
+from enum import Flag
 import random
 from re import T
 import sys
@@ -25,7 +26,9 @@ class ViewTask(QMainWindow):
         self.ventanaDos.hide()
         self.ventanaTres.hide()
         self.btn_siguiente.clicked.connect(self.generarIndividuos)
-        self.btn_comenzar.clicked.connect(self.prueba)
+        self.btn_agregar.clicked.connect(self.agregarTareas)
+        self.btn_siguiente.setEnabled(False)
+        self.btn_comenzar.clicked.connect(self.agregarTareas)
     
 
     def validarDatos(self):
@@ -34,16 +37,29 @@ class ViewTask(QMainWindow):
             self.NOMBRE_TAREA = str(self.nombre_tarea.text())
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
             # self.CANTIDADTAREA = int(self.cantidad_tarea_por_materia.text())
-            if self.mayor.isChecked():
+            if self.btn_mayor.isChecked():
                 print('si es max')
                 self.IMPORTANCIATAREA = "mayor"
-            elif self.menor.isChecked():
+            elif self.btn_menor.isChecked():
                 print('no es max')
                 self.IMPORTANCIATAREA = "menor"
         except ValueError:
             print("Datos mal ingresados")
-    def prueba(self):
-        self.ventanaTres.show()
+    def agregarTareas(self):
+        self.validarDatos()
+        self.LISTATAREAS.append((
+            self.MATERIA,
+            self.NOMBRE_TAREA,
+            self.TIEMPO_TAREA,
+            self.IMPORTANCIATAREA
+        ))
+        for i,x in enumerate(self.LISTATAREAS):
+            self.lista_total.addItem(str(str(i)+". "+str(x)))
+        self.materia.setText("")
+        self.nombre_tarea.setText("")
+        self.tiempo_tarea.setText("")
+        self.btn_siguiente.setEnabled(True)
+        # self.ventanaTres.show()
 
     def iniciarIteraccion(self):
         listaTareasNumber = [x for x in range(self.LISTATAREAS)]
@@ -52,12 +68,7 @@ class ViewTask(QMainWindow):
     def generarIndividuos(self):
         print("-----Generar Individuo-----")
         self.ventanaDos.show()
-        self.LISTATAREAS.append({
-            self.MATERIA,
-            self.NOMBRE_TAREA,
-            self.TIEMPO_TAREA,
-            self.IMPORTANCIATAREA
-        })
+        
 
     def seleccionIndividuos():
         pass
