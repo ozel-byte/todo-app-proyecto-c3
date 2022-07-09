@@ -27,11 +27,14 @@ class ViewTask(QMainWindow):
         uic.loadUi("ui.ui",self)
         self.ventanaDos.hide()
         self.ventanaTres.hide()
-        self.btn_siguiente.clicked.connect(self.generarIndividuos)
+        self.btn_siguiente.clicked.connect(self.agregarDias)
         self.btn_agregar.clicked.connect(self.agregarTareas)
         self.btn_siguiente.setEnabled(False)
-        self.btn_comenzar.clicked.connect(self.agregarTareas)
+        self.btn_comenzar.clicked.connect(self.iniciarIteraccion)
     
+    def agregarDias(self):
+        print("tareas agregadasa")
+        self.ventanaDos.show()
 
     def validarDatos(self):
         try:
@@ -67,7 +70,8 @@ class ViewTask(QMainWindow):
         # self.ventanaTres.show()
 
     def iniciarIteraccion(self):
-        listaTareasNumber = [x for x in range(self.LISTATAREAS)]
+        listaIndividuos = self.generarIndividuos()
+        self.seleccionIndividuos(listaIndividuos)
         pass
     
     def individuo_unico(self,aux1,aux2):
@@ -93,11 +97,21 @@ class ViewTask(QMainWindow):
             poblacion.append(array_individuo)
             array_individuo = []
         print(poblacion)
-        self.ventanaDos.show()
         return poblacion
         
 
-    def seleccionIndividuos():
+    def seleccionIndividuos(self,listaIndividuos):
+        print("--seleccion de paquetes---")
+        listaIndividuosSelecion = []
+        count = 1
+        count2 = 0
+        while count < len(listaIndividuos):
+            listaIndividuosSelecion.append((listaIndividuos[count2],listaIndividuos[count],random.randint(1,100)/100,random.randint(0,len(self.LISTATAREAS)-1)))
+            if count == len(listaIndividuos)-1:
+                count2+=1
+                count = count2
+            count+=1
+        print(listaIndividuosSelecion)
         pass
 
     def cruzaPaquetes():
