@@ -18,6 +18,8 @@ class ViewTask(QMainWindow):
     LISTATAREAS = []
     IMPORTANCIATAREA = ""
     CANTIDADTAREA = 0
+    HORASDIA = 0
+    TAREASDIA = 0
     ABECEDARIO = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
     def __init__(self) -> None:
@@ -36,7 +38,8 @@ class ViewTask(QMainWindow):
             self.MATERIA = str(self.materia.text())
             self.NOMBRE_TAREA = str(self.nombre_tarea.text())
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
-            # self.CANTIDADTAREA = int(self.cantidad_tarea_por_materia.text())
+            self.HORASDIA = int(self.horas_porDia.text())
+            self.TAREASDIA = int(self.tareas_porDia.text())
             if self.btn_mayor.isChecked():
                 print('si es max')
                 self.IMPORTANCIATAREA = "mayor"
