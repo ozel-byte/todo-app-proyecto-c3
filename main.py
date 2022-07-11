@@ -13,6 +13,9 @@ import numpy
 
 class ViewTask(QMainWindow):
     MATERIA = ' '
+    PROBABILIDADDESENDENCIA = 0.0
+    PROBABILIDADMUTACION = 0.0
+    PROBABILIDADMUTACIONGEN = 0.0
     NOMBRE_TAREA = ' '
     TIEMPO_TAREA = 0
     LISTATAREAS = []
@@ -20,6 +23,7 @@ class ViewTask(QMainWindow):
     CANTIDADTAREA = 0
     HORASDIA = 0
     TAREASDIA = 0
+    LISTAJOINPADREHIJO = []
     ABECEDARIO = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
     def __init__(self) -> None:
@@ -31,6 +35,9 @@ class ViewTask(QMainWindow):
         self.btn_agregar.clicked.connect(self.agregarTareas)
         self.btn_siguiente.setEnabled(False)
         self.btn_comenzar.clicked.connect(self.iniciarIteraccion)
+        self.PROBABILIDADDESENDENCIA = random.randint(1,100)/100
+        self.PROBABILIDADMUTACION = random.randint(1,100)/100
+        self.PROBABILIDADMUTACIONGEN = random.randint(1,100)/100
     
     def agregarDias(self):
         print("tareas agregadasa")
@@ -53,26 +60,42 @@ class ViewTask(QMainWindow):
             print("Datos mal ingresados")
 
     def agregarTareas(self):
-        self.validarDatos()
-        self.LISTATAREAS.append((
-            self.MATERIA,
-            self.NOMBRE_TAREA,
-            self.TIEMPO_TAREA,
-            self.IMPORTANCIATAREA
-        ))
+        with open("prueba.txt") as archivo:
+            for x in archivo.readlines():
+                print(x)
+                linea = x.split(" ")
+                self.LISTATAREAS.append((
+                    linea[0],
+                    linea[1],
+                    linea[2],
+                    linea[3].rstrip("\n")
+                ))
+
+        # self.validarDatos()
+
+        # self.LISTATAREAS.append((
+        #     self.MATERIA,
+        #     self.NOMBRE_TAREA,
+        #     self.TIEMPO_TAREA,
+        #     self.IMPORTANCIATAREA
+        # ))
         
-        self.lista_total.addItem("Materia: "+self.MATERIA+"\n Nombre-Tarea: "+str(self.NOMBRE_TAREA)+"\n Tiempo: "+str(self.TIEMPO_TAREA)+"\n Importancia-Tarea: "+str(self.IMPORTANCIATAREA))
-        self.lista_total.addItem("----------------------------------------------------")
-        self.materia.setText("")
-        self.nombre_tarea.setText("")
-        self.tiempo_tarea.setText("")
+        # self.lista_total.addItem("Materia: "+self.MATERIA+"\n Nombre-Tarea: "+str(self.NOMBRE_TAREA)+"\n Tiempo: "+str(self.TIEMPO_TAREA)+"\n Importancia-Tarea: "+str(self.IMPORTANCIATAREA))
+        # self.lista_total.addItem("----------------------------------------------------")
+        # self.materia.setText("")
+        # self.nombre_tarea.setText("")
+        # self.tiempo_tarea.setText("")
+        print("lista")
+        print(self.LISTATAREAS)
         self.btn_siguiente.setEnabled(True)
-        # self.ventanaTres.show()
 
     def iniciarIteraccion(self):
         listaIndividuos = self.generarIndividuos()
-        self.seleccionIndividuos(listaIndividuos)
-        pass
+        listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
+        listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
+        listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
+        self.poda()
+        
     
     def individuo_unico(self,aux1,aux2):
         unico = True  
@@ -103,6 +126,7 @@ class ViewTask(QMainWindow):
     def seleccionIndividuos(self,listaIndividuos):
         print("--seleccion de paquetes---")
         listaIndividuosSelecion = []
+        self.LISTAJOINPADREHIJO = listaIndividuos
         count = 1
         count2 = 0
         while count < len(listaIndividuos):
@@ -112,18 +136,70 @@ class ViewTask(QMainWindow):
                 count = count2
             count+=1
         print(listaIndividuosSelecion)
-        pass
+        return listaIndividuosSelecion
 
-    def cruzaPaquetes():
-        pass
+    def cruzaIndividuos(self,listaSeleccionTareas):
+        print("-------cruza------")
+        listaCruzaIndividuos = []
+        listaProbabilidadDesendencia = []
+        for x in listaSeleccionTareas:
+            if random.randint(1,100)/100 <= self.PROBABILIDADDESENDENCIA:
+                listaProbabilidadDesendencia.append(x)
+            pass
+        for x in listaProbabilidadDesendencia:
+            individuosPaquete1 = x[0]
+            individuosPaquete2 = x[1]
+            corte = x[3]
+            listaCruzaIndividuos.append([individuosPaquete1[:corte]+individuosPaquete2[corte:]])
+            listaCruzaIndividuos.append([individuosPaquete2[:corte]+individuosPaquete1[corte:]])
+        self.eliminarTareasRepetidos(listaCruzaIndividuos)
+       
+        print(listaCruzaIndividuos)
+        return listaCruzaIndividuos
 
-    def mutaPaquetes():
-        pass
+    def eliminarTareasRepetidos(self,listaCruzaIndividuos):
+        for x in listaCruzaIndividuos:
+            individuo1 = x[0]
+            #individuo2 = x[1]
+            listanew2 = [x for x,y in Counter(individuo1).items() if y > 1]
+            #listanew3 = [x for x,y in Counter(individuo2).items() if y > 1]
 
-    def limpieza():
-        pass
+            for p in listanew2:
+                individuo1.remove(p)
+            # for p in listanew3:
+            #     individuo2.remove(p)
+            self.agregandoLosNuevosValoresIndividuos(individuo1)
 
-    def poda():
+    def agregandoLosNuevosValoresIndividuos(self,listaIndividuo):
+        for x in range(1,len(self.LISTATAREAS)):
+            if not x in listaIndividuo:
+                listaIndividuo.append(x)
+
+    def mutaTareas(self,listaCruzaIndividuos):
+        print("-------Mutacion-------")
+        for x in listaCruzaIndividuos:
+            if random.randint(1,100)/100 <= self.PROBABILIDADMUTACION:
+                self.mutar(x[0])
+        for x in listaCruzaIndividuos:
+            self.LISTAJOINPADREHIJO.append(x)
+        
+        print(self.LISTAJOINPADREHIJO)
+        return self.LISTAJOINPADREHIJO
+        #returnar padre hijo
+    
+    def mutar(self,listaCruzaIndividuos):
+        for x in listaCruzaIndividuos:
+            if random.randint(1,100)/100 <= self.PROBABILIDADMUTACIONGEN:
+                listaCruzaIndividuos.remove(x)
+                randoPosicionNumber = random.randint(0,len(listaCruzaIndividuos))
+                listaCruzaIndividuos.insert(randoPosicionNumber,x)
+        
+        pass
+    def calcularLasMejoresTareas(self,listaMutacionIndividuo):
+        
+        pass
+    def poda(self,listaMutaIndividuos):
+
         pass
 
 
