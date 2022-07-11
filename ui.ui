@@ -56,8 +56,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>210</y>
+      <x>40</x>
+      <y>280</y>
       <width>161</width>
       <height>41</height>
      </rect>
@@ -80,8 +80,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>410</y>
+      <x>40</x>
+      <y>450</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -104,8 +104,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>310</y>
+      <x>320</x>
+      <y>280</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -128,8 +128,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="materia">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>260</y>
+      <x>40</x>
+      <y>330</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -150,8 +150,8 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="nombre_tarea">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>360</y>
+      <x>320</x>
+      <y>330</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -172,8 +172,8 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="tiempo_tarea">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>460</y>
+      <x>40</x>
+      <y>500</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -194,8 +194,8 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_siguiente">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>690</y>
+      <x>320</x>
+      <y>620</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -219,8 +219,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="btn_agregar">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>630</y>
+      <x>40</x>
+      <y>620</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -244,7 +244,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>40</x>
       <y>120</y>
       <width>171</width>
       <height>41</height>
@@ -268,7 +268,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLineEdit" name="cantidad_tarea_por_materia">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>40</x>
       <y>160</y>
       <width>221</width>
       <height>41</height>
@@ -510,9 +510,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QListWidget" name="lista_total">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>140</y>
-      <width>391</width>
+      <x>580</x>
+      <y>110</y>
+      <width>321</width>
       <height>551</height>
      </rect>
     </property>
@@ -523,8 +523,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QDateEdit" name="calendario">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>560</y>
+      <x>320</x>
+      <y>500</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -536,8 +536,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>510</y>
+      <x>320</x>
+      <y>450</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -557,6 +557,54 @@ color: rgb(255, 255, 255);</string>
      <string>Fecha de entrega</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>120</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Días totales de trabajo</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="dias_total_trabajo">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>160</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+   </widget>
+   <zorder>dias_total_trabajo</zorder>
+   <zorder>label_10</zorder>
    <zorder>calendario</zorder>
    <zorder>label_5</zorder>
    <zorder>lista_total</zorder>
