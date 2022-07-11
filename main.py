@@ -25,16 +25,17 @@ class ViewTask(QMainWindow):
     TAREASDIA = 0
     LISTAJOINPADREHIJO = []
     ABECEDARIO = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    CALEDARIO = 'dd/mm/yyyy'
+    DIASTRABAJDOS = 0
 
     def __init__(self) -> None:
         super().__init__()
         uic.loadUi("ui.ui",self)
         self.ventanaDos.hide()
-        self.ventanaTres.hide()
         self.btn_siguiente.clicked.connect(self.agregarDias)
         self.btn_agregar.clicked.connect(self.agregarTareas)
         self.btn_siguiente.setEnabled(False)
-        self.btn_comenzar.clicked.connect(self.iniciarIteraccion)
+        self.btn_siguiente.clicked.connect(self.iniciarIteraccion)
         self.PROBABILIDADDESENDENCIA = random.randint(1,100)/100
         self.PROBABILIDADMUTACION = random.randint(1,100)/100
         self.PROBABILIDADMUTACIONGEN = random.randint(1,100)/100
@@ -50,12 +51,8 @@ class ViewTask(QMainWindow):
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
             self.HORASDIA = int(self.horas_porDia.text())
             self.TAREASDIA = int(self.tareas_porDia.text())
-            if self.btn_mayor.isChecked():
-                print('si es max')
-                self.IMPORTANCIATAREA = "mayor"
-            elif self.btn_menor.isChecked():
-                print('no es max')
-                self.IMPORTANCIATAREA = "menor"
+            self.CALEDARIO = str(self.calendario.text())
+            self.DIASTRABAJDOS = int(self.dias_trabajados.text())
         except ValueError:
             print("Datos mal ingresados")
 
