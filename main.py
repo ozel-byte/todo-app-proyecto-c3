@@ -94,6 +94,7 @@ class ViewTask(QMainWindow):
         listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
         listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
         listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
+        self.calcularLasMejoresTareas(listaMutacionIndividuos)
         self.poda()
         
     
@@ -196,7 +197,9 @@ class ViewTask(QMainWindow):
         
         pass
     def calcularLasMejoresTareas(self,listaMutacionIndividuo):
-        
+        # for x in listaMutacionIndividuo:
+
+        #     pass
         pass
     def poda(self,listaMutaIndividuos):
 
