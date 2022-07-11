@@ -95,7 +95,7 @@ class ViewTask(QMainWindow):
         listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
         listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
         self.calcularLasMejoresTareas(listaMutacionIndividuos)
-        self.poda()
+        #self.poda()
         
     
     def individuo_unico(self,aux1,aux2):
