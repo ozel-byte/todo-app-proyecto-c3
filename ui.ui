@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -120,79 +123,6 @@ color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Nombre de la tarea</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>510</y>
-      <width>221</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>Importancia de tarea</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="btn_mayor">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>560</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-</string>
-    </property>
-    <property name="text">
-     <string>Mayor</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="btn_menor">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>560</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>Menor</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="materia">
@@ -364,7 +294,7 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>60</y>
+      <y>70</y>
       <width>951</width>
       <height>671</height>
      </rect>
@@ -590,14 +520,50 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
+   <widget class="QDateEdit" name="calendario">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>560</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>510</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Fecha de entrega</string>
+    </property>
+   </widget>
+   <zorder>calendario</zorder>
+   <zorder>label_5</zorder>
    <zorder>lista_total</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
-   <zorder>label_5</zorder>
-   <zorder>btn_mayor</zorder>
-   <zorder>btn_menor</zorder>
    <zorder>materia</zorder>
    <zorder>nombre_tarea</zorder>
    <zorder>tiempo_tarea</zorder>
