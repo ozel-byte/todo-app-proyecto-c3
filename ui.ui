@@ -305,109 +305,48 @@ color: rgb(0, 0, 0);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>140</y>
-       <width>401</width>
+       <x>340</x>
+       <y>50</y>
+       <width>271</width>
        <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
-      <string>¿Cuántas tareas desea realizar por día?</string>
+      <string>RESULTADO FINAL</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="tareas_porDia">
+    <widget class="QListWidget" name="lista_tarea_2">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>190</y>
-       <width>221</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="horas_porDia">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>360</y>
-       <width>221</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>310</y>
+       <x>270</x>
+       <y>110</y>
        <width>401</width>
-       <height>41</height>
+       <height>461</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>¿Cuántas horas desea trabajar por día?</string>
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_comenzar">
+    <widget class="QPushButton" name="btn_cerrar">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>470</y>
+       <x>360</x>
+       <y>590</y>
        <width>221</width>
        <height>41</height>
       </rect>
@@ -425,86 +364,8 @@ color: rgb(0, 0, 0);</string>
 color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Comenzar</string>
+      <string>Cerrar</string>
      </property>
-    </widget>
-    <widget class="QFrame" name="ventanaTres">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>941</width>
-       <height>671</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>20</y>
-        <width>271</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>18</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>RESULTADO FINAL</string>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="lista_tarea">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>80</y>
-        <width>401</width>
-        <height>461</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_cerrar">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>580</y>
-        <width>221</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(146, 101, 157);
-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string>Cerrar</string>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QListWidget" name="lista_total">
