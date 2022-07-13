@@ -24,9 +24,10 @@ class ViewTask(QMainWindow):
     HORASDIA = 0
     TAREASDIA = 0
     LISTAJOINPADREHIJO = []
-    ABECEDARIO = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    GENERACIONES = []
     CALEDARIO = 'dd/mm/yyyy'
     DIASTRABAJDOS = 0
+    POBLACIONMAXIMA = 0
 
     def __init__(self) -> None:
         super().__init__()
@@ -39,6 +40,7 @@ class ViewTask(QMainWindow):
         self.PROBABILIDADDESENDENCIA = random.randint(1,100)/100
         self.PROBABILIDADMUTACION = random.randint(1,100)/100
         self.PROBABILIDADMUTACIONGEN = random.randint(1,100)/100
+        self.POBLACIONMAXIMA = 8
     
     def agregarDias(self):
         print("tareas agregadasa")
@@ -87,11 +89,15 @@ class ViewTask(QMainWindow):
         self.btn_siguiente.setEnabled(True)
 
     def iniciarIteraccion(self):
+        listaIndividuosGeneracion = []
         listaIndividuos = self.generarIndividuos()
-        listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
-        listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
-        listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
-        self.calcularLasMejoresTareas(listaMutacionIndividuos)
+        for x in range(5):
+            listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
+            listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
+            listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
+            listaTareasCal = self.calcularLasMejoresTareas(listaMutacionIndividuos)
+            listaIndividuosGeneracion.append(self.calcularMayorPeorPromedio(listaTareasCal))
+            self.poda(listaTareasCal)
         #self.poda()
         
     
@@ -193,13 +199,46 @@ class ViewTask(QMainWindow):
                 listaCruzaIndividuos.insert(randoPosicionNumber,x)
         
         pass
+
     def calcularLasMejoresTareas(self,listaMutacionIndividuo):
-        # for x in listaMutacionIndividuo:
-
+        listaTareas = []
+        for i,x in enumerate(listaMutacionIndividuo):
+            listaTareas.append(self.calcularTareaPorIndividuo(x,i))
         #     pass
-        pass
-    def poda(self,listaMutaIndividuos):
+        return listaTareas
 
+    def calcularTareaPorIndividuo(self,lista,num):
+        listaTareasChidas = []
+        totalHrs = 0
+        listaHrs = []
+        listaTareas = []
+        for x in lista:
+            totalHrs += self.LISTATAREAS[x-1][3]
+            listaHrs.append(totalHrs)
+            listaTareas.append(self.LISTATAREAS[x-1])
+        for i,x in enumerate(listaHrs):
+            print(f"|{x}|",end=" ")
+            hrsTarea = listaTareas[i][2]*8
+            if x <= hrsTarea:
+                print(f"{listaTareas[i][0]} Tarea valida")
+                listaTareasChidas.append(listaTareas[i])
+            else:
+                print(f"{listaTareas[i][0]} Tarea Invalida")
+
+
+        return ("Individuo"+str(num),len(listaTareasChidas),listaTareasChidas)
+    
+    def calcularMayorPeorPromedio(self,listaIndividuos):
+        mejorPeorPromedio = []
+        mejorPeorPromedio.append(max([x[1] for x in listaIndividuos]))
+        mejorPeorPromedio.append(min([x[1] for x in listaIndividuos])) 
+        mejorPeorPromedio.append(numpy.mean([x[1] for x in listaIndividuos]))
+
+        return mejorPeorPromedio
+        
+    def poda(self,listaMutaIndividuos):
+        if len(listaMutaIndividuos) > self.POBLACIONMAXIMA:
+            listaMutaIndividuos.sort(key=lambda index: index[0][1])
         pass
 
 
@@ -210,3 +249,11 @@ if __name__ == '__main__':
     GUI = ViewTask()
     GUI.show()
     sys.exit(app.exec_())
+
+
+
+
+# Compiladores Analizador-Sementico 6 4 
+# Mantenimiento pipeline-aws 12 5 
+# Multimedia unity-2d 11 6
+# Ingles Report-speech 9 1
