@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>938</width>
+    <width>1112</width>
     <height>763</height>
    </rect>
   </property>
@@ -50,7 +50,7 @@
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>                   Optimización de Tarea</string>
+     <string>                            Optimización de Tarea</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -294,8 +294,8 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>60</y>
-      <width>951</width>
+      <y>70</y>
+      <width>1131</width>
       <height>671</height>
      </rect>
     </property>
@@ -308,7 +308,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>430</x>
        <y>20</y>
        <width>271</width>
        <height>41</height>
@@ -332,7 +332,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QListWidget" name="lista_tarea_2">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>350</x>
        <y>70</y>
        <width>401</width>
        <height>461</height>
@@ -345,7 +345,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>460</x>
        <y>550</y>
        <width>151</width>
        <height>20</height>
@@ -365,7 +365,7 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>10</x>
        <y>590</y>
-       <width>941</width>
+       <width>1111</width>
        <height>71</height>
       </rect>
      </property>
@@ -374,23 +374,10 @@ color: rgb(0, 0, 0);</string>
    <widget class="QListWidget" name="lista_total">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>760</x>
       <y>110</y>
       <width>321</width>
       <height>551</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-   </widget>
-   <widget class="QDateEdit" name="calendario">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>500</y>
-      <width>221</width>
-      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -402,7 +389,7 @@ color: rgb(0, 0, 0);</string>
      <rect>
       <x>320</x>
       <y>450</y>
-      <width>221</width>
+      <width>411</width>
       <height>41</height>
      </rect>
     </property>
@@ -418,7 +405,7 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Fecha de entrega</string>
+     <string>¿Dentro de cuantos días es la entrega?</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
@@ -442,7 +429,7 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Días totales de trabajo</string>
+     <string>Horas totales de trabajo</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="dias_total_trabajo">
@@ -467,9 +454,31 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="tiempo_tarea_2">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>500</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <zorder>tiempo_tarea_2</zorder>
    <zorder>dias_total_trabajo</zorder>
    <zorder>label_10</zorder>
-   <zorder>calendario</zorder>
    <zorder>label_5</zorder>
    <zorder>lista_total</zorder>
    <zorder>label</zorder>

@@ -1,14 +1,13 @@
 
 
-from enum import Flag
 import random
-from re import T
+
 import sys
 from typing import Counter
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
-import cv2
-from matplotlib import image
+import plotly.express as px
+import pandas as pd
 import numpy
 import matplotlib.pyplot as plt
 
@@ -26,7 +25,7 @@ class ViewTask(QMainWindow):
     TAREASDIA = 0
     LISTAJOINPADREHIJO = []
     GENERACIONES = []
-    CALEDARIO = 'dd/mm/yyyy'
+    DIASENTREGA = 0
     DIASTRABAJDOS = 0
     POBLACIONMAXIMA = 0
     COUNT = 0
@@ -56,7 +55,7 @@ class ViewTask(QMainWindow):
             self.TIEMPO_TAREA = int(self.tiempo_tarea.text())
             self.HORASDIA = int(self.horas_porDia.text())
             self.TAREASDIA = int(self.tareas_porDia.text())
-            self.CALEDARIO = str(self.calendario.text())
+            self.DIASENTREGA = int(self.dias_de_entrega.text())
             self.DIASTRABAJDOS = int(self.dias_trabajados.text())
         except ValueError:
             print("Datos mal ingresados")
@@ -79,7 +78,8 @@ class ViewTask(QMainWindow):
         #     self.MATERIA,
         #     self.NOMBRE_TAREA,
         #     self.TIEMPO_TAREA,
-        #     self.IMPORTANCIATAREA
+        #     self.IMPORTANCIATAREA,
+        #     self.DIASENTREGA
         # ))
         
         # self.lista_total.addItem("Materia: "+self.MATERIA+"\n Nombre-Tarea: "+str(self.NOMBRE_TAREA)+"\n Tiempo: "+str(self.TIEMPO_TAREA)+"\n Importancia-Tarea: "+str(self.IMPORTANCIATAREA))
@@ -107,7 +107,29 @@ class ViewTask(QMainWindow):
         #self.poda()
         self.msjMejorIndividuo.addItem(str(listaUltimaGeneracion[0]))
         self.graficar(listaIndividuosGeneracion)
-        
+        self.graficaGantt(listaUltimaGeneracion)
+    
+
+    def graficaGantt(self,lista):
+
+        # df = pd.DataFrame([
+        #     dict(Task= "job1", Start = "1", Finish="5")
+        # ])  
+        # fig = px.timeline(df,x_start="Start",x_end="Finish",y="Task")
+        # fig.update_yaxes(autorange="reversed")
+        # fig.show()
+        print(lista[0][4])
+        fig, ax = plt.subplots(1,figsize=(16,6))
+        diaFinalPrincipio = 0
+        for i,x in enumerate(lista[0][4]):
+            print(f"dia final : {diaFinalPrincipio}")
+            print(f"i : {i}")
+            if(i==0):
+                ax.barh(" ",0,left=0)
+            ax.barh(x[1],i+1,left=i)
+            
+        plt.show()
+        pass
     
     def individuo_unico(self,aux1,aux2):
         unico = True  
