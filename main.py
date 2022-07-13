@@ -164,18 +164,13 @@ class ViewTask(QMainWindow):
     def eliminarTareasRepetidos(self,listaCruzaIndividuos):
         for x in listaCruzaIndividuos:
             individuo1 = x[0]
-            #individuo2 = x[1]
             listanew2 = [x for x,y in Counter(individuo1).items() if y > 1]
-            #listanew3 = [x for x,y in Counter(individuo2).items() if y > 1]
-
             for p in listanew2:
                 individuo1.remove(p)
-            # for p in listanew3:
-            #     individuo2.remove(p)
             self.agregandoLosNuevosValoresIndividuos(individuo1)
 
     def agregandoLosNuevosValoresIndividuos(self,listaIndividuo):
-        for x in range(1,len(self.LISTATAREAS)):
+        for x in range(0,len(self.LISTATAREAS)):
             if not x in listaIndividuo:
                 listaIndividuo.append(x)
 
@@ -189,7 +184,6 @@ class ViewTask(QMainWindow):
         
         print(self.LISTAJOINPADREHIJO)
         return self.LISTAJOINPADREHIJO
-        #returnar padre hijo
     
     def mutar(self,listaCruzaIndividuos):
         for x in listaCruzaIndividuos:
@@ -213,19 +207,14 @@ class ViewTask(QMainWindow):
         listaHrs = []
         listaTareas = []
         for x in lista:
-            totalHrs += self.LISTATAREAS[x-1][3]
+            totalHrs += int(self.LISTATAREAS[x][3])
             listaHrs.append(totalHrs)
-            listaTareas.append(self.LISTATAREAS[x-1])
+            listaTareas.append(self.LISTATAREAS[x])
         for i,x in enumerate(listaHrs):
-            print(f"|{x}|",end=" ")
-            hrsTarea = listaTareas[i][2]*8
+            hrsTarea = int(listaTareas[i][2]*8)
             if x <= hrsTarea:
-                print(f"{listaTareas[i][0]} Tarea valida")
                 listaTareasChidas.append(listaTareas[i])
-            else:
-                print(f"{listaTareas[i][0]} Tarea Invalida")
-
-
+            
         return ("Individuo"+str(num),len(listaTareasChidas),listaTareasChidas)
     
     def calcularMayorPeorPromedio(self,listaIndividuos):
@@ -239,6 +228,7 @@ class ViewTask(QMainWindow):
     def poda(self,listaMutaIndividuos):
         if len(listaMutaIndividuos) > self.POBLACIONMAXIMA:
             listaMutaIndividuos.sort(key=lambda index: index[0][1])
+        return listaMutaIndividuos
         pass
 
 
