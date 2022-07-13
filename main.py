@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import cv2
 from matplotlib import image
 import numpy
+import matplotlib.pyplot as plt
 
 class ViewTask(QMainWindow):
     MATERIA = ' '
@@ -28,6 +29,8 @@ class ViewTask(QMainWindow):
     CALEDARIO = 'dd/mm/yyyy'
     DIASTRABAJDOS = 0
     POBLACIONMAXIMA = 0
+    COUNT = 0
+    GENERACIONES = 10
 
     def __init__(self) -> None:
         super().__init__()
@@ -37,9 +40,9 @@ class ViewTask(QMainWindow):
         self.btn_agregar.clicked.connect(self.agregarTareas)
         self.btn_siguiente.setEnabled(False)
         self.btn_siguiente.clicked.connect(self.iniciarIteraccion)
-        self.PROBABILIDADDESENDENCIA = random.randint(1,100)/100
-        self.PROBABILIDADMUTACION = random.randint(1,100)/100
-        self.PROBABILIDADMUTACIONGEN = random.randint(1,100)/100
+        self.PROBABILIDADDESENDENCIA = 0.86
+        self.PROBABILIDADMUTACION = 0.1
+        self.PROBABILIDADMUTACIONGEN = 0.15
         self.POBLACIONMAXIMA = 8
     
     def agregarDias(self):
@@ -90,15 +93,20 @@ class ViewTask(QMainWindow):
 
     def iniciarIteraccion(self):
         listaIndividuosGeneracion = []
+        listaUltimaGeneracion = []
         listaIndividuos = self.generarIndividuos()
-        for x in range(5):
+        for x in range(self.GENERACIONES):
             listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
             listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
             listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
             listaTareasCal = self.calcularLasMejoresTareas(listaMutacionIndividuos)
             listaIndividuosGeneracion.append(self.calcularMayorPeorPromedio(listaTareasCal))
-            self.poda(listaTareasCal)
+            listaIndividuos = self.poda(listaTareasCal)
+            listaUltimaGeneracion = listaIndividuos
+            listaIndividuos = [x[2] for x in listaIndividuos]
         #self.poda()
+        self.msjMejorIndividuo.addItem(str(listaUltimaGeneracion[0]))
+        self.graficar(listaIndividuosGeneracion)
         
     
     def individuo_unico(self,aux1,aux2):
@@ -176,10 +184,21 @@ class ViewTask(QMainWindow):
 
     def mutaTareas(self,listaCruzaIndividuos):
         print("-------Mutacion-------")
+        listaMutaIndividuo = []
         for x in listaCruzaIndividuos:
+            listaMutaIndividuo.append(x[0])
+        
+        for x in listaMutaIndividuo:
             if random.randint(1,100)/100 <= self.PROBABILIDADMUTACION:
-                self.mutar(x[0])
-        for x in listaCruzaIndividuos:
+                for y in x:
+                    if random.randint(1,100)/100 <= self.PROBABILIDADMUTACIONGEN:
+                        x.remove(y)
+                        rp = random.randint(0,len(x))
+                        x.insert(rp,y)
+        #     if random.randint(1,100)/100 <= self.PROBABILIDADMUTACION:
+        #         self.mutar(x[0])
+        # print(listaCruzaIndividuos)
+        for x in listaMutaIndividuo:
             self.LISTAJOINPADREHIJO.append(x)
         
         print(self.LISTAJOINPADREHIJO)
@@ -195,10 +214,13 @@ class ViewTask(QMainWindow):
         pass
 
     def calcularLasMejoresTareas(self,listaMutacionIndividuo):
+        print("-----calcular mejores tareas----")
         listaTareas = []
         for i,x in enumerate(listaMutacionIndividuo):
             listaTareas.append(self.calcularTareaPorIndividuo(x,i))
         #     pass
+        listaTareas.sort(key = lambda tareas: tareas[1],reverse=True)
+        
         return listaTareas
 
     def calcularTareaPorIndividuo(self,lista,num):
@@ -206,18 +228,22 @@ class ViewTask(QMainWindow):
         totalHrs = 0
         listaHrs = []
         listaTareas = []
+        
         for x in lista:
-            totalHrs += int(self.LISTATAREAS[x][3])
+            totalHrs += int(self.LISTATAREAS[x][2])
             listaHrs.append(totalHrs)
             listaTareas.append(self.LISTATAREAS[x])
+        
         for i,x in enumerate(listaHrs):
-            hrsTarea = int(listaTareas[i][2]*8)
+            hrsTarea = int(listaTareas[i][3])*8
             if x <= hrsTarea:
                 listaTareasChidas.append(listaTareas[i])
-            
-        return ("Individuo"+str(num),len(listaTareasChidas),listaTareasChidas)
+
+        
+        return ("Individuo"+str(num),len(listaTareasChidas),lista,"Tareas Validas: ",listaTareasChidas)
     
     def calcularMayorPeorPromedio(self,listaIndividuos):
+       
         mejorPeorPromedio = []
         mejorPeorPromedio.append(max([x[1] for x in listaIndividuos]))
         mejorPeorPromedio.append(min([x[1] for x in listaIndividuos])) 
@@ -226,12 +252,41 @@ class ViewTask(QMainWindow):
         return mejorPeorPromedio
         
     def poda(self,listaMutaIndividuos):
+        print("-----poda-----")
         if len(listaMutaIndividuos) > self.POBLACIONMAXIMA:
-            listaMutaIndividuos.sort(key=lambda index: index[0][1])
+            listaMutaIndividuos = listaMutaIndividuos[:self.POBLACIONMAXIMA]
+            # diferencia = len(listaMutaIndividuos) - self.POBLACIONMAXIMA
+            # for x  in range(diferencia):
+            #     listaMutaIndividuos.pop(random.randint(0,len(listaMutaIndividuos)-1))
+        listaMutaIndividuos.sort(key = lambda tareas: tareas[1],reverse=True)
+        
+        self.lista_tarea_2.addItem(f"----Generacion {self.COUNT+1}----")
+        print(listaMutaIndividuos)
+        for x in listaMutaIndividuos:
+            self.lista_tarea_2.addItem(str(x))
+        # lista = [x[2] for x in listaMutaIndividuos]
+        
+        self.COUNT+=1
         return listaMutaIndividuos
+        
+
+    def graficar(self,listaIndividuosGeneracion):
+        fig = plt.figure(figsize=(12,7))
+        fig.tight_layout()
+        plt.subplot(1, 1, 1)
+
+        yM = [x[0] for x in listaIndividuosGeneracion]
+        yP  = [x[1] for x in listaIndividuosGeneracion]
+        yPro = [x[2] for x in listaIndividuosGeneracion]
+
+        plt.plot([x for x in range(self.GENERACIONES)],yM,label="Mejor")
+        plt.plot([x for x in range(self.GENERACIONES)],yP,label="Peor")
+        plt.plot([x for x in range(self.GENERACIONES)],yPro,label="Promedio")
+        plt.scatter(len(yM)-1,listaIndividuosGeneracion[-1][0],label=f"Mejor Individuo",color="red")
+        plt.title("Comportamiento") 
+        plt.legend()
+        plt.show()
         pass
-
-
 
 
 if __name__ == '__main__':
