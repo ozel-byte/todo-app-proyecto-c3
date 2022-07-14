@@ -96,6 +96,8 @@ class ViewTask(QMainWindow):
         for x in self.LISTATAREAS:
             if int(self.dias_total_trabajo.text()) > int(x[3]) :
                 status = True
+            else:
+                status=False
         return status 
 
     def iniciarIteraccion(self):
