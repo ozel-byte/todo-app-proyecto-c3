@@ -90,24 +90,33 @@ class ViewTask(QMainWindow):
         print("lista")
         print(self.LISTATAREAS)
         self.btn_siguiente.setEnabled(True)
+    def calcularMaximoDia(self):
+        status = False
+        for x in self.LISTATAREAS:
+            if x[3] > int(self.dias_total_trabajo.text()):
+                status = True
+        return status 
 
     def iniciarIteraccion(self):
-        listaIndividuosGeneracion = []
-        listaUltimaGeneracion = []
-        listaIndividuos = self.generarIndividuos()
-        for x in range(self.GENERACIONES):
-            listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
-            listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
-            listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
-            listaTareasCal = self.calcularLasMejoresTareas(listaMutacionIndividuos)
-            listaIndividuosGeneracion.append(self.calcularMayorPeorPromedio(listaTareasCal))
-            listaIndividuos = self.poda(listaTareasCal)
-            listaUltimaGeneracion = listaIndividuos
-            listaIndividuos = [x[2] for x in listaIndividuos]
-        #self.poda()
-        self.msjMejorIndividuo.addItem(str(listaUltimaGeneracion[0]))
-        self.graficar(listaIndividuosGeneracion)
-        self.graficaGantt(listaUltimaGeneracion)
+        if not self.calcularMaximoDia():
+            listaUltimaGeneracion = []
+            listaIndividuosGeneracion = []
+            listaIndividuos = self.generarIndividuos()
+            for x in range(self.GENERACIONES):
+                listaSeleccionIndividuos = self.seleccionIndividuos(listaIndividuos)
+                listaCruzaIndividuos     = self.cruzaIndividuos(listaSeleccionIndividuos)
+                listaMutacionIndividuos  = self.mutaTareas(listaCruzaIndividuos)
+                listaTareasCal = self.calcularLasMejoresTareas(listaMutacionIndividuos)
+                listaIndividuosGeneracion.append(self.calcularMayorPeorPromedio(listaTareasCal))
+                listaIndividuos = self.poda(listaTareasCal)
+                listaUltimaGeneracion = listaIndividuos
+                listaIndividuos = [x[2] for x in listaIndividuos]
+            #self.poda()
+            self.msjMejorIndividuo.addItem(str(listaUltimaGeneracion[0]))
+            self.graficar(listaIndividuosGeneracion)
+            self.graficaGantt(listaUltimaGeneracion)
+        else:
+            print("error de dia")
     
 
     def graficaGantt(self,lista):
@@ -119,15 +128,18 @@ class ViewTask(QMainWindow):
         # fig.update_yaxes(autorange="reversed")
         # fig.show()
         print(lista[0][4])
-        fig, ax = plt.subplots(1,figsize=(16,6))
-        diaFinalPrincipio = 0
-        for i,x in enumerate(lista[0][4]):
-            print(f"dia final : {diaFinalPrincipio}")
-            print(f"i : {i}")
-            if(i==0):
-                ax.barh(" ",0,left=0)
-            ax.broken_barh("")
-            
+        fig, gnt = plt.subplots(1,figsize=(16,6)) 
+        gnt.set_xlim(0, 40) 
+        gnt.set_xlabel('Dias') 
+        gnt.set_ylabel('Tareas') 
+        gnt.grid(True) 
+        count = 0
+        for i,x in enumerate(lista):
+            gnt.barh(x[0],x[2],left=count)
+            count = x[2]
+# gnt.barh("Tarea1",1,left=5) 
+# gnt.barh("Tarea2",5,left=8)
+# gnt.barh("Tarea3",8,left=10)
         plt.show()
         pass
     
