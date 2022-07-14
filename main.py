@@ -128,8 +128,7 @@ class ViewTask(QMainWindow):
             nombreValido = lista[0][4][j][1]
             nombreTareas.append(nombreValido)
             print(numDiaTareas[j])
-            if i < numDiaTareas[j]:
-                ax.barh(nombreTareas[j],i+1,left=numDiaTareas[j])                    
+            ax.barh(nombreTareas[j],i,left=numDiaTareas[j])                  
         plt.show()
     
     def individuo_unico(self,aux1,aux2):
