@@ -46,7 +46,8 @@ class ViewTask(QMainWindow):
     
     def agregarDias(self):
         print("tareas agregadasa")
-        self.ventanaDos.show()
+        if not self.calcularMaximoDia():
+            self.ventanaDos.show()
 
     def validarDatos(self):
         try:
