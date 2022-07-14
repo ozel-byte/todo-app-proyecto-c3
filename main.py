@@ -112,25 +112,24 @@ class ViewTask(QMainWindow):
 
     def graficaGantt(self,lista):
 
+        # df = pd.DataFrame([
+        #     dict(Task= "job1", Start = "1", Finish="5")
+        # ])  
+        # fig = px.timeline(df,x_start="Start",x_end="Finish",y="Task")
+        # fig.update_yaxes(autorange="reversed")
+        # fig.show()
+        print(lista[0][4])
         fig, ax = plt.subplots(1,figsize=(16,6))
         diaFinalPrincipio = 0
-        diaMax = 11
-        i = 0
-        numDiaTareas = []
-        print(lista[0][4])
-        tareasValidas = lista[0][4]
-        tareasValidas = [x[3] for x in tareasValidas]
-        nombreTareas = []
-        for j in range(len(tareasValidas)):
-            tareita = tareasValidas[j]
-            tareita = int(tareita)
-            numDiaTareas.append(tareita)
-            nombreValido = lista[0][4][j][1]
-            nombreTareas.append(nombreValido)
-            print(numDiaTareas[j])
-            if i < numDiaTareas[j]:
-                ax.barh(nombreTareas[j],i+1,left=numDiaTareas[j])                    
+        for i,x in enumerate(lista[0][4]):
+            print(f"dia final : {diaFinalPrincipio}")
+            print(f"i : {i}")
+            if(i==0):
+                ax.barh(" ",0,left=0)
+            ax.broken_barh("")
+            
         plt.show()
+        pass
     
     def individuo_unico(self,aux1,aux2):
         unico = True  
