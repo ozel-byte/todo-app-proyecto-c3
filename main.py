@@ -93,7 +93,7 @@ class ViewTask(QMainWindow):
     def calcularMaximoDia(self):
         status = False
         for x in self.LISTATAREAS:
-            if x[3] > int(self.dias_total_trabajo.text()):
+            if int(x[3]) > int(self.dias_total_trabajo.text()):
                 status = True
         return status 
 
