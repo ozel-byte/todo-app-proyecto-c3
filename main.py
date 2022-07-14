@@ -93,11 +93,14 @@ class ViewTask(QMainWindow):
         self.btn_siguiente.setEnabled(True)
     def calcularMaximoDia(self):
         status = False
-        for x in self.LISTATAREAS:
-            if int(self.dias_total_trabajo.text()) > int(x[3]) :
-                status = True
-            else:
-                status=False
+        li = [int(x[3]) for x in self.LISTATAREAS]
+        valorMaximo = max(li)
+        print(valorMaximo)
+        if valorMaximo > int(self.dias_total_trabajo.text()):
+            status = True
+        else:
+            status=False
+
         return status 
 
     def iniciarIteraccion(self):
