@@ -126,28 +126,22 @@ class ViewTask(QMainWindow):
     
 
     def graficaGantt(self,lista):
-
-        # df = pd.DataFrame([
-        #     dict(Task= "job1", Start = "1", Finish="5")
-        # ])  
-        # fig = px.timeline(df,x_start="Start",x_end="Finish",y="Task")
-        # fig.update_yaxes(autorange="reversed")
-        # fig.show()
+        fig, ax = plt.subplots(1,figsize=(16,6))
+        i = 0
+        numDiaTareas = []
         print(lista[0][4])
-        fig, gnt = plt.subplots(1,figsize=(16,6)) 
-        gnt.set_xlim(0, 40) 
-        gnt.set_xlabel('Dias') 
-        gnt.set_ylabel('Tareas') 
-        gnt.grid(True) 
-        count = 0
-        for i,x in enumerate(lista):
-            gnt.barh(x[0],x[2],left=count)
-            count = x[2]
-# gnt.barh("Tarea1",1,left=5) 
-# gnt.barh("Tarea2",5,left=8)
-# gnt.barh("Tarea3",8,left=10)
+        tareasValidas = lista[0][4]
+        tareasValidas = [x[3] for x in tareasValidas]
+        nombreTareas = []
+        for j in range(len(tareasValidas)):
+            tareita = tareasValidas[j]
+            tareita = int(tareita)
+            numDiaTareas.append(tareita)
+            nombreValido = lista[0][4][j][1]
+            nombreTareas.append(nombreValido)
+            print(numDiaTareas[j])
+            ax.barh(nombreTareas[j],i-1,left=numDiaTareas[j])                  
         plt.show()
-        pass
     
     def individuo_unico(self,aux1,aux2):
         unico = True  
@@ -273,13 +267,11 @@ class ViewTask(QMainWindow):
             totalHrs += int(self.LISTATAREAS[x][2])
             listaHrs.append(totalHrs)
             listaTareas.append(self.LISTATAREAS[x])
-        
         for i,x in enumerate(listaHrs):
             hrsTarea = int(listaTareas[i][3])*8
             if x <= hrsTarea:
                 listaTareasChidas.append(listaTareas[i])
 
-        
         return ("Individuo"+str(num),len(listaTareasChidas),lista,"Tareas Validas: ",listaTareasChidas)
     
     def calcularMayorPeorPromedio(self,listaIndividuos):
