@@ -120,28 +120,50 @@ class ViewTask(QMainWindow):
             #self.poda()
             self.msjMejorIndividuo.addItem(str(listaUltimaGeneracion[0]))
             self.graficar(listaIndividuosGeneracion)
-            self.graficaGantt(listaUltimaGeneracion)
+            self.graficarGantt2(listaUltimaGeneracion)
         else:
             print("error de dia")
     
-
-    def graficaGantt(self,lista):
+    def graficarGantt2(self,lista):
         fig, ax = plt.subplots(1,figsize=(16,6))
-        i = 0
-        numDiaTareas = []
         print(lista[0][4])
         tareasValidas = lista[0][4]
-        tareasValidas = [x[3] for x in tareasValidas]
-        nombreTareas = []
-        for j in range(len(tareasValidas)):
-            tareita = tareasValidas[j]
-            tareita = int(tareita)
-            numDiaTareas.append(tareita)
-            nombreValido = lista[0][4][j][1]
-            nombreTareas.append(nombreValido)
-            print(numDiaTareas[j])
-            ax.barh(nombreTareas[j],i-1,left=numDiaTareas[j])                  
+        print(tareasValidas)
+        cont = 0
+        cont2 = 0
+        listaaux = []
+        for i in tareasValidas:
+            diasValidos = (int(i[2])/8)
+            listaaux.append(diasValidos)
+            cont2 += diasValidos
+
+        for y,i in enumerate(tareasValidas):
+           print(i)
+           diasValidos = (int(i[2])/8)
+           ax.barh(i[1]+' '+i[3]+" "+str(listaaux[y]),diasValidos,left=cont) 
+           cont += diasValidos
         plt.show()
+        pass
+
+
+    # def graficaGantt(self,lista):
+    #     fig, ax = plt.subplots(1,figsize=(16,6))
+    #     i = 0
+    #     numDiaTareas = []
+    #     print(lista[0][2])
+    #     tareasValidas = lista[0][2]
+    #     tareasValidas = [x[3] for x in tareasValidas]
+    #     nombreTareas = []
+    #     for j in range(len(tareasValidas)):
+    #         tareita = tareasValidas[j]
+    #         tareita = int(tareita)
+    #         diasTareasValidas = tareasValidas[j] / 8
+    #         numDiaTareas.append(tareita)
+    #         nombreValido = lista[0][4][j][1]
+    #         nombreTareas.append(nombreValido)
+    #         print(numDiaTareas[j])
+    #         ax.barh(nombreTareas[j],i-1,left=numDiaTareas[j])                  
+    #     plt.show()
     
     def individuo_unico(self,aux1,aux2):
         unico = True  
