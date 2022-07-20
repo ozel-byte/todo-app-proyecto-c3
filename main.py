@@ -134,7 +134,7 @@ class ViewTask(QMainWindow):
         listaaux = []
         for i in tareasValidas:
             diasValidos = (int(i[2])/8)
-            listaaux.append(diasValidos)
+            listaaux.append(cont2)
             cont2 += diasValidos
 
         for y,i in enumerate(tareasValidas):
@@ -142,6 +142,14 @@ class ViewTask(QMainWindow):
            diasValidos = (int(i[2])/8)
            ax.barh(i[1]+' '+i[3]+" "+str(listaaux[y]),diasValidos,left=cont) 
            cont += diasValidos
+        ax.set_title("Tareas del Individuo")
+
+        for y,i in enumerate(ax.patches):
+            print(i)
+            plt.text(i.get_x()+0.5, i.get_y()+0.5,
+            str(round((listaaux[y]), 2)),
+            fontsize=10, fontweight='bold',
+            color='black')
         plt.show()
         pass
 
